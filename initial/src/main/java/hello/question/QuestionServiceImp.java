@@ -1,5 +1,7 @@
 package hello.question;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class QuestionServiceImp implements QuestionService {
 	}
 
 	@Override
-	public QuestionEntity getQuestionByExamId(int id) {
+	public List<QuestionEntity> getQuestionByExamId(int id) {
 		// TODO Auto-generated method stub
 		return repository.findQuestionByExamId(id);
 	}
