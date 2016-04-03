@@ -22,4 +22,10 @@ public class ExamServiceImp implements ExamService {
 		return repository.findAllByOrderByTestDone();
 	}
 
+	@Override
+	public List<ExamEntity> getAllExam() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
 }
