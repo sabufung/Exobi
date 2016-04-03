@@ -28,4 +28,35 @@ public class ExamServiceImp implements ExamService {
 		return repository.findAll();
 	}
 
+	@Override
+	public ExamEntity insertExam(ExamEntity exam) {
+		// TODO Auto-generated method stub
+		ExamEntity check = repository.findOne(exam.getId());
+		if (check == null) {
+			return repository.saveAndFlush(exam);
+		}
+		return check;
+	}
+
+	@Override
+	public ExamEntity updateExam(ExamEntity exam) {
+		// TODO Auto-generated method stub
+		ExamEntity check = repository.findOne(exam.getId());
+		if (check == null) {
+			return check;
+		}
+		return repository.saveAndFlush(exam);
+	}
+
+	@Override
+	public ExamEntity deleteExam(ExamEntity exam) {
+		// TODO Auto-generated method stub
+		ExamEntity check = repository.findOne(exam.getId());
+		if (check == null) {
+			return check;
+		}
+		repository.delete(check);
+		return check;
+	}
+
 }

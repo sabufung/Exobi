@@ -21,19 +21,8 @@ import hello.user.UserService;
 public class HelloController {
 
 	@Autowired
-	UserService userService;
-
-	@Autowired
-	ExamService examService;
-
-	@Autowired
 	AnswerService answerService;
 
-	@RequestMapping(value = "/getExamStatistic", method = RequestMethod.POST)
-	public List<ExamEntity> index() {
-		List<ExamEntity> result = examService.getAllByTestDoneAsc();
-		return result;
-	}
 
 	@RequestMapping(value = "/getAnswer", method = RequestMethod.POST)
 	public List<AnswerEntity> getAnswer(@RequestParam("id") int id) {

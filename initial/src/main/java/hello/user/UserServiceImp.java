@@ -25,4 +25,44 @@ public class UserServiceImp implements UserService {
 		return repository.count();
 	}
 
+	@Override
+	public UserEntity getUserByLevel(int id) {
+		// TODO Auto-generated method stub
+		return repository.findByLevel(id);
+	}
+
+	@Override
+	public UserEntity insertUser(UserEntity user) {
+		// TODO Auto-generated method stub
+		return repository.saveAndFlush(user);
+	}
+
+	@Override
+	public UserEntity updateUser(UserEntity user) {
+		// TODO Auto-generated method stub
+		UserEntity check = repository.findOne(user.getId());
+		if (check == null) {
+			return check;
+		}
+		check.setData(user);
+		return repository.saveAndFlush(check);
+	}
+
+	@Override
+	public UserEntity deleteUser(UserEntity user) {
+		// TODO Auto-generated method stub
+		UserEntity check = repository.findOne(user.getId());
+		if (check == null) {
+			return check;
+		}
+		repository.delete(check);
+		return check;
+	}
+
+	@Override
+	public UserEntity getUserByNameLike(String username) {
+		// TODO Auto-generated method stub
+		return repository.findByNameLike(username);
+	}
+
 }
