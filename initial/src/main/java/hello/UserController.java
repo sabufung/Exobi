@@ -1,5 +1,7 @@
 package hello;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +26,19 @@ public class UserController {
 		return user;
 	}
 
-	
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public UserEntity register(@RequestParam("username") String username, @RequestParam("password") String password) {
+		UserEntity user = new UserEntity();
+		user.setName(username);
+		user.setPassword(password);
+		UserEntity userResult = userService.insertUser(user);
+		return userResult;
+	}
+
+	@RequestMapping(value = "/getAllUser", method = RequestMethod.POST)
+	public List<UserEntity> getAllUser() {
+		List<UserEntity> users = userService.getAll();
+		return users;
+	}
 
 }

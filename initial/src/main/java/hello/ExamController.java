@@ -16,13 +16,13 @@ public class ExamController {
 	@Autowired
 	ExamService examService;
 
-	@RequestMapping(value = "/getExamStatistic", method = RequestMethod.POST)
+	@RequestMapping(value = "/getExamStatistic", method = RequestMethod.GET)
 	public List<ExamEntity> getExamStatistic() {
 		List<ExamEntity> result = examService.getAllByTestDoneAsc();
 		return result;
 	}
 
-	@RequestMapping(value = "/getAllExam", method = RequestMethod.POST)
+	@RequestMapping(value = "/getAllExam", method = RequestMethod.GET)
 	public List<ExamEntity> getAllExam() {
 		List<ExamEntity> result = examService.getAllExam();
 		return result;

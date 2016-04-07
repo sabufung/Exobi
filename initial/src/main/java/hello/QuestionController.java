@@ -16,8 +16,8 @@ public class QuestionController {
 	@Autowired
 	QuestionService questionService;
 
-	@RequestMapping(value = "/getQuestion", method = RequestMethod.POST)
-	public List<QuestionEntity> getAllQuestion(@RequestParam("id") int id) {
+	@RequestMapping(value = "/getQuestionByExamId", method = RequestMethod.GET)
+	public List<QuestionEntity> getQuestionByExamId(@RequestParam("id") int id) {
 		return questionService.getQuestionByExamId(id);
 	}
 

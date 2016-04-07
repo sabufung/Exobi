@@ -1,5 +1,7 @@
 package hello.user;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +65,12 @@ public class UserServiceImp implements UserService {
 	public UserEntity getUserByNameLike(String username) {
 		// TODO Auto-generated method stub
 		return repository.findByNameLike(username);
+	}
+
+	@Override
+	public List<UserEntity> getAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
 	}
 
 }

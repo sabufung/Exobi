@@ -1,9 +1,11 @@
 
 package hello;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,21 +13,47 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hello.answer.AnswerEntity;
 import hello.answer.AnswerService;
-import hello.exam.ExamEntity;
-import hello.exam.ExamService;
-import hello.question.QuestionEntity;
-import hello.question.QuestionService;
-import hello.user.UserService;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 @RestController
 public class HelloController {
 
+	public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
+	OkHttpClient client = new OkHttpClient();
+
+	String post(String url, String json) throws IOException {
+		RequestBody body = RequestBody.create(JSON, json);
+		Request request = new Request.Builder().url(url).post(body).build();
+		Response response = client.newCall(request).execute();
+		return response.body().string();
+	}
+
+	String run(String url) throws IOException {
+		Request request = new Request.Builder().url(url).build();
+
+		Response response = client.newCall(request).execute();
+		return response.body().string();
+	}
+
 	@Autowired
 	AnswerService answerService;
 
+	@RequestMapping("/ok")
+	public String getJSON() throws IOException {
 
-	@RequestMapping(value = "/getAnswer", method = RequestMethod.POST)
-	public List<AnswerEntity> getAnswer(@RequestParam("id") int id) {
+		String json = "{id: 1}";
+	    String response = post("http://localhost:8080/getQuestion?id=1", json);
+		return response;
+
+	}
+
+	@RequestMapping(value = "/getAnswer/{id}", method = RequestMethod.POST)
+	public List<AnswerEntity> getAnswer(@PathVariable("id") int id) {
 		return answerService.getAnswerByQuestionId(id);
 	}
 

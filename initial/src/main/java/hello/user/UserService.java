@@ -1,5 +1,7 @@
 package hello.user;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,8 +17,10 @@ public interface UserService {
 	public UserEntity getUserByLevel(int id);
 
 	public UserEntity getUserByNameAndPassword(String username, String password);
-	
+
 	public UserEntity getUserByNameLike(String username);
+
+	public List<UserEntity> getAll();
 
 	public long countUser();
 }
