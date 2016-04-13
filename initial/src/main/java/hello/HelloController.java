@@ -46,8 +46,8 @@ public class HelloController {
 	@RequestMapping("/ok")
 	public String getJSON() throws IOException {
 
-		String json = "{id: 1}";
-	    String response = post("http://localhost:8080/getQuestion?id=1", json);
+		String json = "[{\"id\":1,\"content\":\"phuonglhk\",\"type\":\"multiple\",\"examId\":1,\"point\":1.0},{\"id\":2,\"content\":\"sdad\",\"type\":\"choice\",\"examId\":1,\"point\":0.5}]";
+	    String response = post("http://localhost:8080/test", json);
 		return response;
 
 	}

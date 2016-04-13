@@ -3,12 +3,14 @@ package hello;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import hello.exam.ExamEntity;
 import hello.exam.ExamService;
+import hello.question.QuestionEntity;
 
 @RestController
 public class ExamController {
@@ -26,6 +28,11 @@ public class ExamController {
 	public List<ExamEntity> getAllExam() {
 		List<ExamEntity> result = examService.getAllExam();
 		return result;
+	}
+
+	@RequestMapping(value = "/createExam", method = RequestMethod.POST)
+	public ExamEntity createExam(@RequestBody ExamEntity exam) {
+		return examService.insertExam(exam);
 	}
 
 }
