@@ -17,4 +17,6 @@ public interface ExamService {
 	public List<ExamEntity> getAllByTestDoneAsc();
 
 	public List<ExamEntity> getAllExam();
+
+	public List<ExamEntity> getExamBySubject(String subject);
 }

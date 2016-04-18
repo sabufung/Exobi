@@ -21,9 +21,23 @@ public class ExamEntity {
 
 	@Column(name = "level")
 	private int level;
-	
+
 	@Column(name = "testdone")
 	private int testDone;
+
+	@Column(name = "subject")
+	private String subject;
+
+	@Column(name = "is_active")
+	private boolean isActive;
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
 	public long getId() {
 		return id;
@@ -48,7 +62,6 @@ public class ExamEntity {
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
 
 	public int getTestDone() {
 		return testDone;
@@ -58,10 +71,4 @@ public class ExamEntity {
 		this.testDone = testDone;
 	}
 
-	public void setData(ExamEntity data) {
-		this.id = data.id;
-		this.name = data.name;
-		this.level = data.level;
-		this.testDone = data.testDone;
-	}
 }

@@ -20,7 +20,7 @@ public class AnswerServiceImp implements AnswerService {
 	@Override
 	public List<AnswerEntity> getAnswerByQuestionId(int id) {
 		// TODO Auto-generated method stub
-		return repository.findAnswerByQuestionId(id);
+		return repository.findAnswerByQuestionIdAndIsActiveTrue(id);
 	}
 
 	@Override

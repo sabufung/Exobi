@@ -25,6 +25,17 @@ public class AnswerEntity {
 	@Column(name = "question_id")
 	private int questionId;
 
+	@Column(name = "is_active")
+	private boolean isActive;
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public int getQuestionId() {
 		return questionId;
 	}
@@ -57,9 +68,4 @@ public class AnswerEntity {
 		this.id = id;
 	}
 
-	public void setData(AnswerEntity data) {
-		this.id = data.id;
-		this.content = data.content;
-		this.isCorrect = data.isCorrect;
-	}
 }

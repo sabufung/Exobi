@@ -47,14 +47,9 @@ public class HelloController {
 	public String getJSON() throws IOException {
 
 		String json = "[{\"id\":1,\"content\":\"phuonglhk\",\"type\":\"multiple\",\"examId\":1,\"point\":1.0},{\"id\":2,\"content\":\"sdad\",\"type\":\"choice\",\"examId\":1,\"point\":0.5}]";
-	    String response = post("http://localhost:8080/test", json);
+		String response = post("http://localhost:8080/test", json);
 		return response;
 
-	}
-
-	@RequestMapping(value = "/getAnswer/{id}", method = RequestMethod.POST)
-	public List<AnswerEntity> getAnswer(@PathVariable("id") int id) {
-		return answerService.getAnswerByQuestionId(id);
 	}
 
 }

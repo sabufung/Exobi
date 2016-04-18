@@ -45,7 +45,10 @@ dependencies {
    compile('org.webjars:jquery:2.1.1')
    compile('org.webjars:bootstrap:3.2.0')
    compile('org.webjars:webjars-locator')
-   
+   // Dozer is a Java Bean to Java Bean mapper that recursively copies data from one object to another.
+	// In this project, we use Dozer for converting between Entity and DTO
+    compile("net.sf.dozer:dozer:5.5.1")
+    compile("org.projectlombok:lombok:1.16.6")
     testCompile("junit:junit")
 }
 

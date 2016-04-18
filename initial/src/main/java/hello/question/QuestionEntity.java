@@ -28,6 +28,17 @@ public class QuestionEntity {
 	@Column(name = "point")
 	private double point;
 
+	@Column(name = "is_active")
+	private boolean isActive;
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
 	public double getPoint() {
 		return point;
 	}
@@ -68,9 +79,4 @@ public class QuestionEntity {
 		this.id = id;
 	}
 
-	public void setData(QuestionEntity data) {
-		this.id = data.id;
-		this.content = data.content;
-		this.type = data.type;
-	}
 }

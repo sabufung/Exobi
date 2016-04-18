@@ -59,4 +59,10 @@ public class ExamServiceImp implements ExamService {
 		return check;
 	}
 
+	@Override
+	public List<ExamEntity> getExamBySubject(String subject) {
+		// TODO Auto-generated method stub
+		return repository.findBySubject(subject);
+	}
+
 }
